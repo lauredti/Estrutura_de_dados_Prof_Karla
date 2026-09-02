@@ -23,7 +23,7 @@ def menu_principal():
         if opcao == "1":
             print("\nExecutando o experimento com listas de 10, 20 e 1000 elementos...\n")
             tamanhos = [10, 20, 1000]
-            print(f"{'Tamanho':<10} | {'Bubble Comparação':<10} | {'Bubble Trocas':<14} | {'Quick Comparação':<10} | {'Quick Movimentações':<10}")
+            print(f"{'Tamanho':<10} | {'Bubble Comparação':<10} | {'Bubble Trocas':<14} | {'Quick Comparação':<10} | {'Quick Trocas':<10}")
             print("-" * 70)
             
             for tam in tamanhos:
@@ -58,8 +58,8 @@ def menu_principal():
 
         # 5. Executar opção 3 - Hands On 1                
         elif opcao == "3":
-            temperaturas_teste = [19.5, 21.0, 18.2, 25.3, 16.7, 22.4, 20.1, 27.8, 17.2, 23.6]
-            executar_hands_on_1(temperaturas_teste)
+            temperaturas = [round(random.uniform(15.0, 35.0), 1) for _ in range(10)]
+            executar_hands_on_1(temperaturas)
 
         # 6. Executar opção 4 - Hands On 2   
         elif opcao == "4":

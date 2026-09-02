@@ -1,46 +1,47 @@
+import random
 # Hands On 1 - Investigação do Array
 # Array com 10 temperaturas
 def executar_hands_on_1(temperaturas):
     temperatura = []
-
-    # 1. Entrada dos valores
-    for i in range(10):
-        valor = float(input(f"Digite a temperatura do índice {i}: "))
-        temperatura.append(valor)
-
+    
     # 2. Mostrar todos os elementos
     print("\n--- TEMPERATURAS ---")
     for i in range(10):
-        print(f"Índice {i}: {temperatura[i]:.1f} °C")
+        print(f"Índice {i}: {temperaturas[i]:.1f} °C")
 
     # 3. Inicializações
     soma = 0
-    maior = temperatura[0]
-    menor = temperatura[0]
+    maior = temperaturas[0]
+    menor = temperaturas[0]
     indice_maior = 0
     indice_menor = 0
+    operacoes = 0
 
     # 4. Percorrer o array
     for i in range(10):
-        soma += temperatura[i]
+        soma += temperaturas[i]
+        operacoes += 1
 
         # Verificar maior temperatura
-        if temperatura[i] > maior:
-            maior = temperatura[i]
+        operacoes += 1
+        if temperaturas[i] > maior:
+            maior = temperaturas[i]
             indice_maior = i
 
         # Verificar menor temperatura
-        if temperatura[i] < menor:
-            menor = temperatura[i]
+        operacoes += 1
+        if temperaturas[i] < menor:
+            menor = temperaturas[i]
             indice_menor = i
 
     # 5. Calcular a média
     media = soma / 10
-
+    operacoes += 1
     # 6. Contar temperaturas acima da média
     acima_media = 0
     for i in range(10):
-        if temperatura[i] > media:
+        operacoes += 1
+        if temperaturas[i] > media:
             acima_media += 1
 
     # 7. Mostrar resultados
@@ -51,6 +52,7 @@ def executar_hands_on_1(temperaturas):
     print(f"Menor temperatura: {menor:.1f} °C")
     print(f"Índice do menor valor: {indice_menor}")
     print(f"Quantidade de valores acima da média: {acima_media}")
+    print(f"Total de operações realizadas: {operacoes}")
 
 def executar_hands_on_2(sensores, limite):
 
