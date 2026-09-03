@@ -119,3 +119,13 @@ c) Quantas posições da matriz são percorridas;
 d) Qual a relação entre o número de linhas, colunas e quantidade de operações.
 
 * A relação é multiplicativa: Total de iterações = Linhas X Colunas. Com 5 linhas e 24 colunas, o corpo do laço interno roda 5 X 24 = 120 vezes. Se o tamanho de qualquer dimensão mudar, o total de verificações cresce proporcionalmente ao produto das duas (complexidade O(L X C)).
+
+---
+## CONCLUSÃO
+1. O aumento do tamanho da estrutura de dados influencia a quantidade de operações?
+  * Sim. Quanto maior a quantidade de elementos (n), maior é o volume de trocas que o algoritmo precisa executar para processar ou ordenar os dados.
+
+2. Bubble Sort e Quick Sort crescem da mesma maneira quando o número de elementos aumenta?
+  * Não. Eles têm taxas de crescimento bem diferentes, o Bubble Sort tem crescimento quadrático, O(n^2). Se o tamanho da lista dobra, a quantidade de operações chega a quadruplicar. Já o Quick Sort, tem crescimento linear-logarítmico na média, O(n log n). Ele escala de forma muito mais eficiente e processa grandes volumes de dados bem mais rápido.
+3. Por que analisar somente o resultado final da ordenação não é suficiente para comparar algoritmos?
+  * Porque o resultado final sempre será o mesmo a lista ordenada. O que define a qualidade e a escolha do algoritmo é o custo do processo para chegar lá, o que inclui:Tempo de execução, quantidade de trocas, comparações feitas, Uso de memória auxiliar e Estabilidade.
