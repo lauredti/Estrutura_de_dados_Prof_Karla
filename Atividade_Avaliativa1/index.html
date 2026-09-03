@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise de dados</title>
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="flex-container">
+    
+
+    <div class="flex-col">
+    <h1>MENU</h1>
+      <h2>Escolha uma Opção:</h2>
+      <div class="menu-grid">
+        <button onclick="mostrarSecao('sec-1')">1. Experimento de Ordenação (Bubble vs Quick)</button>
+        <button onclick="mostrarSecao('sec-2')">2. Busca em Matrizes</button>
+        <button onclick="mostrarSecao('sec-3')">3. Hands On 1 - Análise de temperatura</button>
+        <button onclick="mostrarSecao('sec-4')">4. Hands On 2 - Monitoramento de Sensores</button>
+        <button onclick="mostrarSecao('sec-0')">0. Sair</button>
+      </div>
+    </div>
+    <div class="flex-col">
+     <!-- Opção 1 -->
+     <div id="sec-1" class="section">
+        <h3>Experimento de Ordenação</h3>
+        <p>Testa listas de 10, 20 e 1000 elementos comparando comparações e trocas.</p>
+        <button class="run-btn" onclick="executarOpcao(1)">Executar Teste</button>
+      </div>
+
+      <!-- Opção 2 -->
+      <div id="sec-2" class="section">
+        <h3>Busca em Matriz Personalizada</h3>
+        <label>Quantidade de Linhas:</label>
+        <input type="number" id="matriz-linhas" value="3">
+        <label>Quantidade de Colunas:</label>
+        <input type="number" id="matriz-colunas" value="3">
+        <label>Número para buscar (1 a 100):</label>
+        <input type="number" id="matriz-alvo" value="42">
+        <button class="run-btn" onclick="executarOpcao(2)">Gerar e Buscar</button>
+      </div>
+
+      <!-- Opção 3 -->
+      <div id="sec-3" class="section">
+        <h3>Hands On 1 - Análise de Temperatura</h3>
+        <label>Insira 10 temperaturas separadas por vírgula:</label>
+        <input type="text" id="temperaturas" value="21.5, 23.0, 19.8, 25.4, 28.1, 20.0, 22.3, 24.7, 26.0, 18.9">
+        <button class="run-btn" onclick="executarOpcao(3)">Analisar</button>
+      </div>
+
+      <!-- Opção 4 -->
+      <div id="sec-4" class="section">
+        <h3>Hands On 2 - Monitoramento de Sensores</h3>
+        <label>Limite de temperatura para alerta (°C):</label>
+        <input type="number" id="limite-alerta" step="0.1" value="28.0">
+        <button class="run-btn" onclick="executarOpcao(4)">Monitorar (5 Sensores x 24h)</button>
+      </div>
+
+    <div class="card">
+      <h2>Resultado:</h2>
+      <div id="saida" class="terminal">> Aguardando comando...</div>
+    </div>
+  </div>
+
+
+</body>
+</html>

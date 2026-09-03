@@ -58,7 +58,12 @@ def menu_principal():
 
         # 5. Executar opção 3 - Hands On 1                
         elif opcao == "3":
-            temperaturas = [round(random.uniform(15.0, 35.0), 1) for _ in range(10)]
+            temperaturas = []
+            print("\nDigite as 10 temperaturas:")
+            for i in range(10):
+                valor = float(input(f"Temperatura {i + 1}/10: "))
+                temperaturas.append(valor)
+        
             executar_hands_on_1(temperaturas)
 
         # 6. Executar opção 4 - Hands On 2   

@@ -1,4 +1,3 @@
-import random
 # Hands On 1 - Investigação do Array
 # Array com 10 temperaturas
 def executar_hands_on_1(temperaturas):
