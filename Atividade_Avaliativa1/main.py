@@ -20,17 +20,32 @@ def menu_principal():
         opcao = input("\nEscolha uma opção: ")
 
         # 3. Executar opção 1 - Experimento de ordenação
-        if opcao == "1":
+         if opcao == "1":
             print("\nExecutando o experimento com listas de 10, 20 e 1000 elementos...\n")
             tamanhos = [10, 20, 1000]
-            print(f"{'Tamanho':<10} | {'Bubble Comparação':<10} | {'Bubble Trocas':<14} | {'Quick Comparação':<10} | {'Quick Trocas':<10}")
-            print("-" * 70)
+            for cenario in ["Aleatório", "Ordenado", "Invertido"]:
+                print(f"\n--- Cenário: {cenario} ---")
+                print(f"{'Tamanho':<8} | {'Bubble Comp.':<13} | {'Bubble T.':<13} | {'Quick Comp.':<13} | {'Quick T.':<13} | {'Insert Comp.':<13} | {'Insert T.':<13} | {'Select Comp.':<13} | {'Select T.':<13}")
+                print("-" * 70)
             
-            for tam in tamanhos:
-                original = gerar_array(tam)
-                _, b_comp, b_trocas = bubble_sort(original)
-                _, q_comp, q_mov = quick_sort(original)
-                print(f"{tam:<10} | {b_comp:<17} | {b_trocas:<14} | {q_comp:<16} | {q_mov:<10}")
+                for tam in tamanhos:
+                    base = gerar_array(tam)
+                    if cenario == "Aleatório":
+                        original = base
+                    elif cenario == "Ordenado":
+                        original = sorted(base)
+                    else:
+                        original = sorted(base, reverse=True)
+                
+                    _, b_comp, b_trocas = bubble_sort(original)
+                    _, q_comp, q_mov = quick_sort(original)
+                    _, i_comp, i_mov = insertion_sort(original)
+                    _, s_comp, s_trocas = selection_sort(original)
+                    print(f"{tam:<8} | {b_comp:<13} | {b_trocas:<13} | "
+                f"{q_comp:<13} | {q_mov:<13} | "
+                f"{i_comp:<13} | {i_mov:<13} | "
+                f"{s_comp:<13} | {s_trocas:<13}")
+
 
         # 4. Executar opção 2 - Busca em matriz       
         elif opcao == "2":

@@ -1,3 +1,6 @@
+import sys
+sys.setrecursionlimit(20000)
+
 # Algoritmo de ordenação Bubble Sort com contagem de métricas
 def bubble_sort(lista_original):
 
@@ -67,3 +70,46 @@ def quick_sort(lista_original):
 
     # 5. Retornar resultado e métricas
     return arr, metricas["comparacoes"], metricas["movimentacoes"]
+def insertion_sort(lista_original):
+    arr = list(lista_original)
+    n = len(arr)
+    comparacoes = 0
+    movimentacoes = 0
+
+    for i in range(1, n):
+        chave = arr[i]
+        j = i - 1
+        
+        while j >= 0:
+            comparacoes += 1
+            if arr[j] > chave:
+                arr[j + 1] = arr[j]
+                movimentacoes += 1
+                j -= 1
+            else:
+                break
+        
+        arr[j + 1] = chave
+        movimentacoes += 1  
+
+    return arr, comparacoes, movimentacoes
+
+
+def selection_sort(lista_original):
+    arr = list(lista_original)
+    n = len(arr)
+    comparacoes = 0
+    trocas = 0
+
+    for i in range(n - 1):
+        menor_idx = i
+        for j in range(i + 1, n):
+            comparacoes += 1
+            if arr[j] < arr[menor_idx]:
+                menor_idx = j
+
+        if menor_idx != i:
+            arr[i], arr[menor_idx] = arr[menor_idx], arr[i]
+            trocas += 1
+
+    return arr, comparacoes, trocas
