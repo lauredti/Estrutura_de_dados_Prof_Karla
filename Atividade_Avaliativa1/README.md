@@ -1,12 +1,12 @@
-## BUBBLE SORT E QUICK SORT
+## BUBBLE SORT, QUICK SORT, INSERT SORT E SELECT SORT
 
 ### Bubble Sort 
 * O Bubble Sort é um tipo de algoritmo simples que organiza um conjunto de números, ele compara os números lado a lado e os troca de lugar conforme a sua ordem. Ele é eficaz em organizar listas pequenas, mas faz muito esforço em listas maiores. Em cada passagem, o maior elemento restante "flutua" até a sua posição final no final da lista.
 
 * **Complexidade:**
   * Melhor caso: O(n) — ocorre quando a lista já está ordenada;
-  * Caso médio: O(n^2) — comparações e trocas frequentes em dados aleatórios;
-  * Pior caso: O(n^2) — ocorre quando a lista está em ordem totalmente inversa.
+  * Caso médio: O(n²) — comparações e trocas frequentes em dados aleatórios;
+  * Pior caso: O(n²) — ocorre quando a lista está em ordem totalmente inversa.
 * **Vantagens:**
   * Muito simples de entender e implementar;
   * É estável;
@@ -26,59 +26,119 @@
 * **Complexidade:**
   * Melhor caso: O(n log n) — ocorre quando o pivô escolhido divide a lista exatamente ao meio a cada passo.
   * Caso médio: O(n log n) — divisão balanceada na maioria das listas desordenadas.
-  * Pior caso: O(n^2) — ocorre quando o pivô escolhido é sempre o menor ou o maior elemento.
+  * Pior caso: O(n²) — ocorre quando o pivô escolhido é sempre o menor ou o maior elemento.
 * **Vantagens:**
   * Extremamente rápido na prática no caso médio.
   * Ordenação com baixo consumo de memória extra.
   * Excelente aproveitamento da memória cache do processador.
 * **Limitações:**
   * Não é um algoritmo estável por padrão.
-  * Pode atingir O(n^2) se a escolha do pivô for ruim.
+  * Pode atingir O(n²) se a escolha do pivô for ruim.
   * Implementação recursiva um pouco mais complexa.
 
 * **Situações de uso:**
   * Adequado: Grandes volumes de dados em geral, bibliotecas padrão de linguagens e cenários onde velocidade média é prioridade.
-  * Não é recomendado: Quando a estabilidade da ordenação é obrigatória, em sistemas de tempo real estrito com risco de O(n^2), ou quando a estrutura de dados for uma lista encadeada.
+  * Não é recomendado: Quando a estabilidade da ordenação é obrigatória, em sistemas de tempo real estrito com risco de O(n²), ou quando a estrutura de dados for uma lista encadeada.
 
+### Insert Sort
+O Insertion Sort funciona de forma semelhante a ordenar cartas de baralho na mão. Ele percorre a lista da esquerda para a direita, pegando um elemento por vez e inserindo-o na posição correta entre os elementos que já foram ordenados anteriormente.
+
+* **Complexidade:**
+
+  * Melhor caso:O(n)
+
+  * Caso médio:O(n²)
+
+  * Pior caso:O(n²)
+
+* **Vantagens:**
+  * Muito eficiente para conjuntos pequenos ou para listas que já estão quase ordenadas.
+  * É um algoritmo estável.
+  * Funciona bem como algoritmo online.
+  * Não exige memória extra.
+ 
+* **Limitações:**
+  * Muito lento para listas grandes.Desempenho cai bastante com volumes grandes de dados no caso médio e no pior caso.
+  * Realiza muitos deslocamentos/trocas quando os elementos menores estão muito próximos do final da lista.
+ 
+* **Situações de uso:**
+
+  * Adequado: Listas pequenas, dados quase ordenados ou fluxos contínuos de dados que chegam um a um.
+
+  * Não é recomendado: Grandes volumes de dados desordenados ou invertidos.
+
+### Select Sort
+O Selection Sort percorre a lista procurando o menor elemento e o coloca na primeira posição. Depois, procura o segundo menor e coloca na segunda, repetindo o processo para o restante da lista até que tudo esteja ordenado.
+
+* **Complexidade:**
+
+  * Melhor caso:O(n²)
+
+  * Caso médio:O(n²)
+
+  * Pior caso:O(n²)
+
+* **Vantagens:**
+  * Simples de entender e implementar.
+  * Realiza poucas trocas de posição na memória, o que ajuda se a operação de escrita for cara.
+  * Não precisa de memória extra.
+ 
+* **Limitações:**
+  * Muito lento para listas grandes.
+  * Compara os itens o tempo todo, mesmo que o vetor já esteja parcialmente ou totalmente ordenado.
+  * Em sua implementação padrão, não é estável.
+ 
+* **Situações de uso:**
+
+  * Adequado: Pequenos conjuntos de dados onde o custo de gravar na memória é alto e a memória disponível é extremamente limitada.
+
+  * Não é recomendado: Listas médias ou grandes, ou situações em que o desempenho geral do tempo de execução é importante. 
 
 ### Tabela Comparativa
 
-| Característica | Bubble Sort | Quick Sort |
-| :--- | :--- | :--- |
-| **Princípio de funcionamento** | Compara pares adjacentes e troca-os se estiverem fora de ordem, fazendo os maiores valores "flutuarem" até o final. | Usa divisão e conquista: escolhe um pivô, particiona os dados (menores à esquerda, maiores à direita) e ordena recursivamente. |
-| **Melhor caso** | O(n) | O(n log n) |
-| **Caso médio** | O(n^2) | O(n log n) |
-| **Pior caso** | O(n^2)| O(n^2) |
-| **Uso de memória** | O(1)  | O(log n) |
-| **Vantagem principal** | Simplicidade conceitual e facilidade de código | Alta performance e escalabilidade para grandes dados |
-| **Limitação principal** | Baixo desempenho em listas médias e grandes devido ao excesso de trocas. | Instável e suscetível ao pior caso O(n^2) se o pivô for mal escolhido. |
-| **Aplicação recomendada** | Fins educacionais ou conjuntos de dados minúsculos e quase ordenados. | Ordenação geral de grandes volumes de dados e bibliotecas padrão de sistemas. |
+| Característica | Bubble Sort | Quick Sort | Insert Sort | Select Sort
+| :--- | :--- | :--- |:--- |:--- 
+| **Princípio de funcionamento** | Compara pares adjacentes e troca-os se estiverem fora de ordem, fazendo os maiores valores "flutuarem" até o final. | Usa divisão e conquista: escolhe um pivô, particiona os dados (menores à esquerda, maiores à direita) e ordena recursivamente. | Constrói a lista ordenada elemento a elemento, inserindo cada novo item na posição correta entre os já ordenados. | Percorre a lista para encontrar o menor elemento restante e troca-o diretamente com o elemento da primeira posição não ordenada.
+| **Melhor caso** | O(n) | O(n log n) | O(n) | O(n²)
+| **Caso médio** | O(n²) | O(n log n) | O(n²) | O(n²)
+| **Pior caso** | O(n²)| O(n²) | O(n²) | O(n²)
+| **Uso de memória** | O(1)  | O(log n) | O(1) |O(1)
+| **Vantagem principal** | Simplicidade conceitual e facilidade de código | Alta performance e escalabilidade para grandes dados | Extremamente eficiente para listas quase ordenadas ou pequenas, e é estável. | Minimiza o número de trocas.
+| **Limitação principal** | Baixo desempenho em listas médias e grandes devido ao excesso de trocas. | Instável e suscetível ao pior caso O(n²) se o pivô for mal escolhido. | Lento para listas grandes e inversamente ordenadas devido a muitos deslocamentos. | Realiza sempre O(n²) comparações, mesmo que a lista já esteja totalmente ordenada.
+| **Aplicação recomendada** | Fins educacionais ou conjuntos de dados minúsculos e quase ordenados. | Ordenação geral de grandes volumes de dados e bibliotecas padrão de sistemas. | Pequenas coleções de dados, listas que recebem novos dados continuamente ou dados quase ordenados. | Sistemas onde a escrita na memória é muito dispendiosa, já que reduz o número de trocas.
 
 ---
 
 ## EXPERIMENTO DE ORDENAÇÃO
 
 a) Qual algoritmo realizou menos operações para 10 elementos?
-* Quick Sort. Ele teve menos comparações e menos trocas.
+* O Insertion Sort, com 28 comparações.
 
-b) O comportamento permaneceu igual para 20 elementos?
-* Sim. O Quick Sort continuou bem mais eficiente que o Bubble Sort tanto em comparações quanto em trocas.
+b) Qual algoritmo realizou menos trocas ou movimentações?
+   * O Selection Sort realizou menos trocas: 5 trocas para tamanho 10, 16 para 20 e 994 para 1.000.
+c) O comportamento observado para 10 elementos permaneceu semelhante quando o tamanho aumentou para 20?
+  * Sim, em geral. O Quick Sort continuou liderando em eficiência geral com o menor número de comparações, o Selection Sort manteve o menor número de trocas, e tanto Bubble quanto Insertion continuaram exibindo crescimento acelerado.
 
-c) O que aconteceu quando o tamanho aumentou para 1.000 elementos?
-* A diferença aumentou bastante. O Bubble Sort explodiu para quase 500 mil comparações e 250 mil trocas, enquanto o Quick Sort se manteve econômico, com apenas cerca de 11 mil comparações e 6 mil movimentações.
+d) O que aconteceu com a quantidade de operações quando o vetor passou para 1.000 elementos?
+  * A quantidade de operações explodiu nos algoritmos quadráticos. O número de comparações do Bubble Sort e do Selection Sort saltou para quase 500 mil, enquanto o Insertion Sort ficou em torno de 254 mil comparações e trocas. Em contraste, o Quick Sort manteve um volume muito inferior.
 
-d) Qual algoritmo apresentou maior crescimento da quantidade de operações?
-* Bubble Sort. O número de operações dele subiu em um ritmo muito mais acelerado conforme a entrada aumentou.
+e) Bubble Sort, Insertion Sort e Selection Sort apresentam complexidade O(n²) em situações típicas estudadas. Eles apresentaram exatamente a mesma quantidade de operações? Explique utilizando seus resultados.
+  * Não. Ter a mesma classe assintótica O(n²) significa ter uma taxa de crescimento semelhante, mas não valores idênticos.
 
-e) Os resultados experimentais são coerentes com as complexidades teóricas estudadas?
-* Sim, o Bubble Sort compara praticamente todo mundo com todo mundo. Quando você coloca 1.000 itens, o esforço multiplica por ele mesmo, dando quase 500 mil comparações na tabela. Já o Quick Sort vai dividindo a lista no meio para resolver mais rápido. Para esses mesmos 1.000 itens, a matemática prevê algo em torno de 10 mil comparações, que bate certinho com as 11 mil que você mediu.
+f) Qual algoritmo apresentou maior crescimento no número de operações?
+  * O Bubble Sort e o Insertion Sort somando todas as operações.
 
-f) Em qual situação você escolheria Bubble Sort?
-* Apenas para fins educativos ou para listas minúsculas onde a facilidade de escrever o código importa mais que a velocidade.
+g) Como o comportamento experimental do Quick Sort se diferenciou dos demais algoritmos?
+  * Ele cresceu de forma muito mais suave e escalável. Enquanto os outros três algoritmos foram para centenas de milhares de operações em 1.000 elementos, o Quick Sort fez apenas 11.758 comparações e 5.619 trocas.
 
-g) Em qual situação você escolheria Quick Sort?
- * Para listas médias e grandes na prática, sempre que você precisar de alta velocidade e bom uso de memória em situações do mundo real.
+h) Os resultados encontrados são coerentes com as complexidades teóricas estudadas?
+  * Sim. Para Bubble, Selection e Insertion, o número de comparações e trocas aumentou numa proporção quadrática enquanto o Quick Sort seguiu a complexidade média teórica de O(n log n).
 
+i) Se você fosse responsável pelo sistema da central de distribuição e precisasse ordenar milhares de pedidos, qual dos quatro algoritmos escolheria? Justifique utilizando os resultados do experimento.
+  * O Quick Sort. Na prática com 1.000 itens ele já executou cerca de 40 a 60 vezes menos operações no total que qualquer um dos outros três.
+
+A organização inicial dos dados interfere na quantidade de operações realizadas por todos os algoritmos da mesma maneira?
+  *   Não. Enquanto alguns se beneficiam muito quando a lista já está ordenada, como o Bubble Sort e o Insertion Sort, que reduzem bastante o número de comparações, outros, como o Selection Sort, mantêm exatamente a mesma quantidade de comparações em qualquer cenário.
  ---
  ## INVESTIGAÇÃO DE BUSCA EM MATRIZES
 
@@ -126,6 +186,6 @@ d) Qual a relação entre o número de linhas, colunas e quantidade de operaçõ
   * Sim. Quanto maior a quantidade de elementos (n), maior é o volume de trocas que o algoritmo precisa executar para processar ou ordenar os dados.
 
 2. Bubble Sort e Quick Sort crescem da mesma maneira quando o número de elementos aumenta?
-  * Não. Eles têm taxas de crescimento bem diferentes, o Bubble Sort tem crescimento quadrático, O(n^2). Se o tamanho da lista dobra, a quantidade de operações chega a quadruplicar. Já o Quick Sort, tem crescimento linear-logarítmico na média, O(n log n). Ele escala de forma muito mais eficiente e processa grandes volumes de dados bem mais rápido.
+  * Não. Eles têm taxas de crescimento bem diferentes, o Bubble Sort tem crescimento quadrático, O(n²). Se o tamanho da lista dobra, a quantidade de operações chega a quadruplicar. Já o Quick Sort, tem crescimento linear-logarítmico na média, O(n log n). Ele escala de forma muito mais eficiente e processa grandes volumes de dados bem mais rápido.
 3. Por que analisar somente o resultado final da ordenação não é suficiente para comparar algoritmos?
   * Porque o resultado final sempre será o mesmo a lista ordenada. O que define a qualidade e a escolha do algoritmo é o custo do processo para chegar lá, o que inclui:Tempo de execução, quantidade de trocas, comparações feitas, Uso de memória auxiliar e Estabilidade.
